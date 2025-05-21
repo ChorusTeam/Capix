@@ -33,7 +33,7 @@ public class ExampleMod {
 * [Source](https://github.com/ChorusTeam/Capix)
 
 ### Report Issues
-* [Source](https://github.com/ChorusTeam/Capix/issues)
+* [Report Issues](https://github.com/ChorusTeam/Capix/issues)
 
 # This mod is not affiliated with Mojang, Optifine, LabyMod, Capes, or the MinecraftCapes Mod
 
