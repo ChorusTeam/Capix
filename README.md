@@ -1,9 +1,7 @@
 # Capix
-- A small API mod allows Mod Developers to add capes to their mods
+- A small API mod that allows Mod Developers to add capes to their mods
 
 ### Fabric Setup Example
-
-
 
 ```java
 
@@ -27,5 +25,11 @@ public class ExampleMod {
     }
 }
 ```
+
+### Source
+* [Source](https://github.com/ChorusTeam/Capix)
+
+### Report Issues
+* [Source](https://github.com/ChorusTeam/Capix/issues)
 
 # This mod is not affiliated with Mojang, Optifine, LabyMod, Capes, or the MinecraftCapes Mod
