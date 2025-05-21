@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "capix",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${description}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/Capix",
+    "issues": "https://github.com/ChorusTeam/Capix/issues",
+    "website": "https://patreon.com/chorus_team",
+    "repo": "https://github.com/ChorusTeam/Capix"
+  },
+  "license": "${license}",
+  "icon": "assets/capix/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "net.yeoxuhang.capix.client.CapixClient"
+    ],
+    "main": [
+      "net.yeoxuhang.capix.CapixFabric"
+    ],
+    "modmenu": [
+      "net.yeoxuhang.capix.client.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "${mod_id}.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": "*",
+    "minecraft": ">=${minecraft_version}",
+    "java": ">=${java_version}"
+  },
+  "accessWidener": "capix.accesswidener",
+  "custom": {
+    "modmenu": {
+      "links": {
+        "capix.discord": "https://discord.gg/PUJ42rkRBY",
+        "capix.patreon": "https://patreon.com/chorus_team",
+        "capix.source": "https://github.com/ChorusTeam/Capix"
+      }
+    }
+  }
+}
