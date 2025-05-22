@@ -27,9 +27,11 @@ public abstract class AbstractClientPlayerMixin extends Player {
     private void injectCustomCape(CallbackInfoReturnable<PlayerSkin> cir) {
         String name = this.getGameProfile().getName();
         ResourceLocation customCape = CapixManager.getCapeForPlayer(name);
-        PlayerSkin playerSkin = getPlayerInfo().getSkin();
-        if (customCape != null) {
-            cir.setReturnValue(new PlayerSkin(playerSkin.texture(), playerSkin.textureUrl(), customCape, customCape, playerSkin.model(), playerSkin.secure()));
+        if (this.getPlayerInfo() != null){
+            PlayerSkin playerSkin = getPlayerInfo().getSkin();
+            if (customCape != null) {
+                cir.setReturnValue(new PlayerSkin(playerSkin.texture(), playerSkin.textureUrl(), customCape, customCape, playerSkin.model(), playerSkin.secure()));
+            }
         }
     }
 }
