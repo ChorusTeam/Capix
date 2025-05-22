@@ -71,7 +71,7 @@ public class CapeSettingsScreen extends Screen {
         MultiBufferSource.BufferSource vertexConsumers = Minecraft.getInstance().renderBuffers().bufferSource();
         Cape cape = new Cape(Cape.createBodyLayer().bakeRoot());
 
-        ResourceLocation capeTexture = CapixManager.getCapeForPlayer(this.minecraft.getGameProfile().getName());
+        ResourceLocation capeTexture = CapixManager.getCapeForPlayer(this.minecraft.getGameProfile().getId().toString());
         int xPosition = this.width / 2 + 160;
         int y = this.height / 2 - 20;
 
@@ -141,7 +141,7 @@ public class CapeSettingsScreen extends Screen {
 
                 if (!isHeader && modId != null && capeName != null && enabled != null) {
                     ModCape cape = CapixApi.getCapesForMod(modId).get(capeName);
-                    String playerName = Minecraft.getInstance().getGameProfile().getName();
+                    String playerName = Minecraft.getInstance().getUser().getProfileId().toString();
 
                     if (cape != null && cape.shouldRenderFor(playerName)) {
                         this.checkbox = Checkbox.builder(label, CapeSettingsScreen.this.font)

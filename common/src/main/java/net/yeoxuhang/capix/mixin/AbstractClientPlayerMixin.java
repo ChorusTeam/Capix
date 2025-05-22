@@ -25,7 +25,7 @@ public abstract class AbstractClientPlayerMixin extends Player {
 
     @Inject(method = "getSkin", at = @At("HEAD"), cancellable = true)
     private void injectCustomCape(CallbackInfoReturnable<PlayerSkin> cir) {
-        String name = this.getGameProfile().getName();
+        String name = this.getStringUUID();
         ResourceLocation customCape = CapixManager.getCapeForPlayer(name);
         if (this.getPlayerInfo() != null){
             PlayerSkin playerSkin = getPlayerInfo().getSkin();
