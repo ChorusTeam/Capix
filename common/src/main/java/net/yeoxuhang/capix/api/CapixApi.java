@@ -16,6 +16,12 @@ public class CapixApi {
         registerCape(modId, capeName, cape);
     }
 
+    /*public static void registerCape(String modId, String capeName, String textureLink, String link){
+        ModCape cape = new ModCape(modId, textureLink, link);
+        registerCape(modId, capeName, cape);
+    }*/
+
+
     public static void registerCape(String modId, String capeName, ModCape cape) {
         MOD_CAPES.computeIfAbsent(modId, k -> new HashMap<>()).put(capeName, cape);
         CapixConfig.getInstance().setCapeEnabledIfAbsent(modId, capeName, false);
@@ -40,7 +46,7 @@ public class CapixApi {
         getAllCapes().forEach(ModCape::reload);
     }
 
-    public static Screen openConfigScreen(Screen parent) {
+    public static Screen getScreen(Screen parent) {
         return new CapeSettingsScreen(parent);
     }
 

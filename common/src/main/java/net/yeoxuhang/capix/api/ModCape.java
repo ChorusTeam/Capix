@@ -3,7 +3,6 @@ package net.yeoxuhang.capix.api;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import net.minecraft.resources.ResourceLocation;
-
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -28,6 +27,16 @@ public class ModCape {
     public ModCape(String modId, ResourceLocation texture, String url) {
         this(modId, texture, () -> fetchNameList(url));
     }
+
+    /*public ModCape(String modId, String textureUrl, Supplier<List<String>> nameSupplier) {
+        this.modId = modId;
+        this.texture = TextureLoader.loadFromUrl(textureUrl, modId);
+        this.nameSupplier = nameSupplier;
+    }
+
+    public ModCape(String modId, String textureUrl, String nameListUrl) {
+        this(modId, textureUrl, () -> fetchNameList(nameListUrl));
+    }*/
 
     public boolean shouldRenderFor(String name) {
         return nameList.contains(name.toLowerCase());
