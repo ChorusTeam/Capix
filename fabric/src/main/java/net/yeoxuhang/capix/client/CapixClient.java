@@ -2,6 +2,9 @@ package net.yeoxuhang.capix.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.minecraft.server.packs.PackType;
+import net.yeoxuhang.capix.CapeDataPackLoader;
 import net.yeoxuhang.capix.Capix;
 import net.yeoxuhang.capix.api.CapixApi;
 
@@ -18,5 +21,7 @@ public class CapixClient implements ClientModInitializer {
         CapixApi.getEnabledCapes().forEach(c -> {
             Capix.LOG.debug("Registered cape: " + c.modId);
         });
+
+        ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new CapeDataPackLoader());
     }
 }

@@ -41,6 +41,7 @@ public class CapeSettingsScreen extends Screen {
     public CapeSettingsScreen(Screen parent) {
         super(TITLE);
         this.parent = parent;
+        CapixApi.reload();
     }
 
     @Override
@@ -71,7 +72,8 @@ public class CapeSettingsScreen extends Screen {
         MultiBufferSource.BufferSource vertexConsumers = Minecraft.getInstance().renderBuffers().bufferSource();
         Cape cape = new Cape(Cape.createBodyLayer().bakeRoot());
 
-        ResourceLocation capeTexture = CapixManager.getCapeForPlayer(this.minecraft.getGameProfile().getId().toString());
+        UUID name = Minecraft.getInstance().getGameProfile().getId();
+        ResourceLocation capeTexture = CapixManager.getCapeForPlayer(name.toString());
         int xPosition = this.width / 2 + 160;
         int y = this.height / 2 - 20;
 

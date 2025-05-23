@@ -2,6 +2,8 @@ package net.yeoxuhang.capix.api;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
+import net.minecraft.client.Minecraft;
+
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -36,26 +38,33 @@ public class ModCape {
     }
 
     public static List<String> fetchNameList(String url) {
-        try (InputStream in = new URL(url).openStream();
-             InputStreamReader reader = new InputStreamReader(in)) {
-            if (url.endsWith(".txt")) {
-                // Read .txt file line-by-line
-                List<String> names = new ArrayList<>();
-                Scanner scanner = new Scanner(reader);
-                while (scanner.hasNextLine()) {
-                    String line = scanner.nextLine().trim();
-                    if (!line.isEmpty() && !line.startsWith("#")) {
-                        names.add(line.toLowerCase());
+        if (url != null){
+            try (InputStream in = new URL(url).openStream();
+                 InputStreamReader reader = new InputStreamReader(in)) {
+                if (url.endsWith(".txt")) {
+                    // Read .txt file line-by-line
+                    List<String> names = new ArrayList<>();
+                    Scanner scanner = new Scanner(reader);
+                    while (scanner.hasNextLine()) {
+                        String line = scanner.nextLine().trim();
+                        if (!line.isEmpty() && !line.startsWith("#")) {
+                            names.add(line.toLowerCase());
+                        }
                     }
+                    return names;
+                } else {
+                    // Default: JSON string array
+                    return new Gson().fromJson(reader, new TypeToken<List<String>>() {}.getType());
                 }
-                return names;
-            } else {
-                // Default: JSON string array
-                return new Gson().fromJson(reader, new TypeToken<List<String>>() {}.getType());
-            }
 
-        } catch (Exception e) {
-            return Collections.emptyList();
+            } catch (Exception e) {
+                return Collections.emptyList();
+            }
+        } else {
+            String name = Minecraft.getInstance().getGameProfile().getId().toString();
+            List<String> names = new ArrayList<>();
+            names.add(name);
+            return names;
         }
     }
 }
