@@ -8,9 +8,9 @@ import net.yeoxuhang.capix.api.CapixApi;
 import net.yeoxuhang.capix.client.gui.CapeSettingsScreen;
 
 @Mod(value = Capix.MOD_ID, dist = Dist.CLIENT)
-public class CapixForge {
+public class CapixNeoForge {
 
-    public CapixForge() {
+    public CapixNeoForge() {
         Capix.LOG.debug("NeoForge Loaded");
         if (Capix.isDevEnvironment()){
             CapixApi.registerCape(Capix.MOD_ID, "Example Cape", "textures/capix_cape.png", "https://raw.githubusercontent.com/ChorusTeam/Capix/master/namelist.txt");

@@ -11,7 +11,7 @@ public class CapixApi {
     private static final Map<String, Map<String, ModCape>> MOD_CAPES = new HashMap<>();
 
     /**
-     * @apiNote texture from url must be a raw image
+     * Note: texture from url must be a raw image
      * @param modId for the cape
      * @param capeName for the name of the cape
      * @param textureLocation using url or texture from the mod
