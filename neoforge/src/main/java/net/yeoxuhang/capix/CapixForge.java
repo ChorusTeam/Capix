@@ -12,7 +12,10 @@ public class CapixForge {
 
     public CapixForge() {
         Capix.LOG.debug("NeoForge Loaded");
-        CapixApi.registerCape(Capix.MOD_ID, "Example Cape", Capix.name("textures/capix_cape.png"), "https://raw.githubusercontent.com/ChorusTeam/Capix/master/namelist.txt");
+        if (Capix.isDevEnvironment()){
+            CapixApi.registerCape(Capix.MOD_ID, "Example Cape", "textures/capix_cape.png", "https://raw.githubusercontent.com/ChorusTeam/Capix/master/namelist.txt");
+            CapixApi.registerCape(Capix.MOD_ID, "Example Url Cape", "https://github.com/ChorusTeam/Capix/blob/master/http_cape.png?raw=true", "https://raw.githubusercontent.com/ChorusTeam/Capix/master/namelist.txt");
+        }
         CapixApi.reload();
         CapixApi.getEnabledCapes().forEach(c -> {
             Capix.LOG.debug("Registered cape: " + c.modId);
@@ -20,6 +23,9 @@ public class CapixForge {
         registerScreen(ModLoadingContext.get());
     }
 
+    /**
+     * Bind configuration screen to {@link Capix}
+     * **/
     public static void registerScreen(ModLoadingContext modLoadingContext) {
         modLoadingContext.registerExtensionPoint(IConfigScreenFactory.class, () -> (minecraft, screen) -> new CapeSettingsScreen(screen));
     }

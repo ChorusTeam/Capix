@@ -10,7 +10,10 @@ public class CapixClient implements ClientModInitializer {
     public void onInitializeClient() {
         Capix.LOG.debug("Fabric Loaded");
         EntityModelLayerRegistry.registerModelLayer(Cape.LAYER_LOCATION, Cape::createBodyLayer);
-        CapixApi.registerCape(Capix.MOD_ID, "Example Cape", Capix.name("textures/capix_cape.png"), "https://raw.githubusercontent.com/ChorusTeam/Capix/master/namelist.txt");
+        if (Capix.isDevEnvironment()){
+            CapixApi.registerCape(Capix.MOD_ID, "Example Cape", "textures/capix_cape.png", "https://raw.githubusercontent.com/ChorusTeam/Capix/master/namelist.txt");
+            CapixApi.registerCape(Capix.MOD_ID, "Example Url Cape", "https://github.com/ChorusTeam/Capix/blob/master/http_cape.png?raw=true", "https://raw.githubusercontent.com/ChorusTeam/Capix/master/namelist.txt");
+        }
         CapixApi.reload();
         CapixApi.getEnabledCapes().forEach(c -> {
             Capix.LOG.debug("Registered cape: " + c.modId);

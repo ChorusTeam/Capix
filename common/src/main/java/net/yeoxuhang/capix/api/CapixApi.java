@@ -1,7 +1,6 @@
 package net.yeoxuhang.capix.api;
 
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.resources.ResourceLocation;
 import net.yeoxuhang.capix.config.CapixConfig;
 import net.yeoxuhang.capix.client.gui.CapeSettingsScreen;
 
@@ -11,17 +10,25 @@ import java.util.stream.Collectors;
 public class CapixApi {
     private static final Map<String, Map<String, ModCape>> MOD_CAPES = new HashMap<>();
 
-    public static void registerCape(String modId, String capeName, ResourceLocation textureLocation, String link){
+    /**
+     * @apiNote texture from url must be a raw image
+     * @param modId for the cape
+     * @param capeName for the name of the cape
+     * @param textureLocation using url or texture from the mod
+     * @param link for name-lists
+
+     * @see ModCape
+     * **/
+    public static void registerCape(String modId, String capeName, String textureLocation, String link){
         ModCape cape = new ModCape(modId, textureLocation, link);
         registerCape(modId, capeName, cape);
     }
 
-    /*public static void registerCape(String modId, String capeName, String textureLink, String link){
-        ModCape cape = new ModCape(modId, textureLink, link);
-        registerCape(modId, capeName, cape);
-    }*/
-
-
+    /**
+     * @param modId for the cape
+     * @param capeName for the name of the cape
+     * @param cape using {@link ModCape}
+     * **/
     public static void registerCape(String modId, String capeName, ModCape cape) {
         MOD_CAPES.computeIfAbsent(modId, k -> new HashMap<>()).put(capeName, cape);
         CapixConfig.getInstance().setCapeEnabledIfAbsent(modId, capeName, false);

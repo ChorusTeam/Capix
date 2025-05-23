@@ -27,9 +27,11 @@ public class Cape extends Model {
 		return LayerDefinition.create(meshdefinition, 64, 32);
 	}
 
+	/**
+	 * We use {@link #renderWithAnimation} instead.
+	 * **/
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int i, int i1, int i2) {
-		//We use renderWithAnimation instead.
 	}
 
 	public void renderWithAnimation(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color, float tick) {
