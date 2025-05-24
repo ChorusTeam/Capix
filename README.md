@@ -16,7 +16,7 @@ public class ExampleModClient implements ClientModInitializer {
         // Using default
         CapixApi.registerCape(ExampleMod.MOD_ID, "Example Cape", "textures/example_cape.png", "https://raw.githubusercontent.com/ExampleTeam/Example/master/namelist.txt");
         // Texture from url
-        CapixApi.registerCape(ExampleMod.MOD_ID, "Example Cape", "https://github.com/ExampleTeam/Capix/blob/master/example_cape.png?raw=true", "https://raw.githubusercontent.com/ExampleTeam/Example/master/namelist.txt");
+        CapixApi.registerCape(ExampleMod.MOD_ID, "Example Cape", "https://github.com/ExampleTeam/Example/blob/master/example_cape.png?raw=true", "https://raw.githubusercontent.com/ExampleTeam/Example/master/namelist.txt");
     }
 }
 ```
@@ -32,7 +32,7 @@ public class ExampleMod {
         // Using default
         CapixApi.registerCape(ExampleMod.MOD_ID, "Example Cape", "textures/example_cape.png", "https://raw.githubusercontent.com/ExampleTeam/Example/master/namelist.txt");
         // Texture from url
-        CapixApi.registerCape(ExampleMod.MOD_ID, "Example Cape", "https://github.com/ExampleTeam/Capix/blob/master/example_cape.png?raw=true", "https://raw.githubusercontent.com/ExampleTeam/Example/master/namelist.txt");
+        CapixApi.registerCape(ExampleMod.MOD_ID, "Example Cape", "https://github.com/ExampleTeam/Example/blob/master/example_cape.png?raw=true", "https://raw.githubusercontent.com/ExampleTeam/Example/master/namelist.txt");
     }
 }
 ```
