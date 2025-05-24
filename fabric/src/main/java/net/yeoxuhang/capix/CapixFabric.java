@@ -6,6 +6,5 @@ public class CapixFabric implements ModInitializer {
 
     @Override
     public void onInitialize() {
-
     }
 }

@@ -21,7 +21,6 @@ public class CapixClient implements ClientModInitializer {
         CapixApi.getEnabledCapes().forEach(c -> {
             Capix.LOG.debug("Registered cape: " + c.modId);
         });
-
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new CapeDataPackLoader());
     }
 }

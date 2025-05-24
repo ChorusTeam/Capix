@@ -29,13 +29,12 @@ public class CapeDataPackLoader extends SimpleJsonResourceReloadListener impleme
                 String name = GsonHelper.getAsString(json, "name");
                 String texture = GsonHelper.getAsString(json, "texture");
                 String modId = entry.getKey().getNamespace();
-                System.out.println(name);
-                System.out.println(texture.replace(modId + ":", ""));
-                System.out.println(modId);
+                Capix.LOG.debug("Mod ID: {}, Texture: {}, Name: {}", modId, texture, name);
+
                 CapixApi.registerCape(modId, name, texture.replace(modId + ":", ""), null);
                 CapixApi.reload();
             } catch (Exception e) {
-                System.err.println("[Capix] Failed to parse cape " + entry.getKey() + ": " + e.getMessage());
+                Capix.LOG.error("Failed to parse cape " + entry.getKey() + ": " + e.getMessage());
             }
         }
     }
